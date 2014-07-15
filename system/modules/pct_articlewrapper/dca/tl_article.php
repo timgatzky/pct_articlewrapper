@@ -19,8 +19,8 @@ $GLOBALS['TL_DCA']['tl_article']['palettes']['__selector__'][] = 'articlewrapper
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_start'] = '{articlewrapper_legend},articlewrapper,articlewrapper_style;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},cssID,space;{publish_legend},published';
-$GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_stop'] = '{articlewrapper_legend},articlewrapper,articlewrapper_style;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},space;{publish_legend},published';
+$GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_start'] = '{articlewrapper_legend},articlewrapper,articlewrapper_style,articlewrapper_space;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},cssID,space;{publish_legend},published';
+$GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_stop'] = '{articlewrapper_legend},articlewrapper;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},space;{publish_legend},published';
 
 $GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = str_replace
 (
@@ -52,8 +52,16 @@ array_insert($GLOBALS['TL_DCA']['tl_article']['fields'],0,array
 		'inputType'				=> 'select',
 		'options'				=> array('fullwidth','boxed'),
 		'reference'				=> $GLOBALS['TL_LANG']['tl_article']['articlewrapper_layout'],
-		'eval'					=> array('tl_class'=>'clr','chosen'=>true),
+		'eval'					=> array('tl_class'=>'w50','chosen'=>true),
 		'sql'					=> "varchar(16) NOT NULL default ''",
+	),
+	'articlewrapper_space'	=> array
+	(
+		'label'					=> &$GLOBALS['TL_LANG']['tl_article']['articlewrapper_space'],
+		'exclude'				=> true,
+		'inputType'				=> 'text',
+		'eval'					=> array('multiple'=>true, 'size'=>2, 'rgxp'=>'digit', 'nospace'=>true, 'tl_class'=>'w50'),
+		'sql'					=> "varchar(64) NOT NULL default ''"
 	),
 ));
 

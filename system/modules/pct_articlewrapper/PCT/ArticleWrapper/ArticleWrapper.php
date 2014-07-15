@@ -153,6 +153,30 @@ class ArticleWrapper
 		
 		$classes = array_unique(array_filter($classes,'strlen'));
 		
+		// margin
+		$margin = deserialize($objArticle->space);
+		$styles = array();
+		if(isset($margin[0]))
+		{
+			$styles[] = 'margin-top:'.$margin[0].'px;';
+		}
+		if(isset($margin[1]))
+		{
+			$styles[] = 'margin-bottom:'.$margin[1].'px;';
+		}
+		
+		// padding
+		$padding = deserialize($objArticle->articlewrapper_space);
+		if(isset($padding[0]))
+		{
+			$styles[] = 'padding-top:'.$padding[0].'px;';
+		}
+		if(isset($padding[1]))
+		{
+			$styles[] = 'padding-bottom:'.$padding[1].'px;';
+		}
+		
+		
 		$isStart = true;
 		$strTemplate = 'pct_articlewrapper_start';
 		if($objArticle->articlewrapper == 'articlewrapper_stop')
@@ -164,7 +188,9 @@ class ArticleWrapper
 		$objTemplate = new \FrontendTemplate($strTemplate);
 		$objTemplate->setData($objArticle->row());
 		$objTemplate->cssID = $cssID;
-		$objTemplate->class = implode(' ', $classes);
+		$objTemplate->class = trim(implode(' ', $classes));
+		$objTemplate->styles = trim(implode(' ', $styles));
+		
 		$strBuffer = $objTemplate->parse();
 		
 		unset($GLOBALS['PCT_ARTICLEWRAPPER']['ident'][$article]);
