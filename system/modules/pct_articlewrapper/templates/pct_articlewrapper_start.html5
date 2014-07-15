@@ -1,0 +1,6 @@
+<?php
+/**
+ * ArticleWrapper Start template 
+ */
+?>
+<div <?php echo $this->cssID; ?> class="<?php echo $this->class; ?> block">
