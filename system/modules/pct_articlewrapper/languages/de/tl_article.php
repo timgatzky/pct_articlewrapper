@@ -28,9 +28,10 @@ $GLOBALS['TL_LANG']['tl_article']['articlewrapper']['articlewrapper_stop']	= 'Um
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper_style'][0]		= 'Darstellungsart';
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper_style'][1]		= 'Wählen Sie die Darstellungsart.';
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper_style']['fullwidth_contentboxed']		= 'fullwidth [content boxed]';
-
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper_padding'][0]		= 'Padding Anfang und Ende';
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper_padding'][1]		= 'Hier können Sie das Padding am Anfang oder am Ende des Artikelwrappers in Pixeln eingeben. Sie sollten Inline-Styles jedoch nach Möglichkeit vermeiden und den Abstand in einem Stylesheet definieren.';
+$GLOBALS['TL_LANG']['tl_article']['articlewrapper_layout'][0]		= 'Layout-CSS-Klasse';
+$GLOBALS['TL_LANG']['tl_article']['articlewrapper_layout'][1]		= 'Hier können Sie dem Artikelwrapper eine individuelle Klasse mitgeben, für zum Beispiel ein individuelles Styling. Definiert in: $GLOBALS[PCT_ARTICLEWRAPPER][layout_options]';
 
 /**
  * Legends

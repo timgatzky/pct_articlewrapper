@@ -32,7 +32,7 @@ $GLOBALS['TL_DCA']['tl_article']['palettes']['__selector__'][] = 'articlewrapper
 /**
  * Palettes
  */
-$GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_start'] = '{articlewrapper_legend},articlewrapper,articlewrapper_style,articlewrapper_padding;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},cssID,space;{publish_legend},published';
+$GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_start'] = '{articlewrapper_legend},articlewrapper,articlewrapper_style,articlewrapper_padding,articlewrapper_layout;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},cssID,space;{publish_legend},published';
 $GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_stop'] = '{articlewrapper_legend},articlewrapper;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},space;{publish_legend},published';
 
 $GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = '{articlewrapper_legend},articlewrapper;'.$GLOBALS['TL_DCA']['tl_article']['palettes']['default'];
@@ -60,6 +60,16 @@ array_insert($GLOBALS['TL_DCA']['tl_article']['fields'],0,array
 		'inputType'				=> 'select',
 		'options'				=> array('fullwidth','fullwidth_contentboxed','boxed'),
 		'reference'				=> $GLOBALS['TL_LANG']['tl_article']['articlewrapper_style'],
+		'eval'					=> array('tl_class'=>'w50','chosen'=>true),
+		'sql'					=> "varchar(32) NOT NULL default ''",
+	),
+	'articlewrapper_layout'	=> array
+	(
+		'label'					=> &$GLOBALS['TL_LANG']['tl_article']['articlewrapper_layout'],
+		'exclude'				=> true,
+		'inputType'				=> 'select',
+		'options'				=> ($GLOBALS['PCT_ARTICLEWRAPPER']['layout_options'] ? $GLOBALS['PCT_ARTICLEWRAPPER']['layout_options'] : array()),
+		'reference'				=> $GLOBALS['TL_LANG']['pct_articlewrapper']['layout_options'],
 		'eval'					=> array('tl_class'=>'w50','chosen'=>true),
 		'sql'					=> "varchar(32) NOT NULL default ''",
 	),

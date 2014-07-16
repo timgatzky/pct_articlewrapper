@@ -146,6 +146,7 @@ class ArticleWrapper
 		$classes = array_merge($classes,$objArticle->classes);
 		$classes[] = 'articlewrapper';
 		$classes[] = $objArticle->articlewrapper_style;
+		$classes[] = $objArticle->articlewrapper_layout;
 		$classes[] = 'articlewrapper_'.$objArticle->id;
 		
 		// remove the identifier
