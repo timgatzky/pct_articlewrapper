@@ -36,4 +36,5 @@ TemplateLoader::addFiles(array
 (
 	'pct_articlewrapper_start'       	=> 'system/modules/pct_articlewrapper/templates',
 	'pct_articlewrapper_stop'       	=> 'system/modules/pct_articlewrapper/templates',
+	'pct_articlewrapper_single'       	=> 'system/modules/pct_articlewrapper/templates',
 ));

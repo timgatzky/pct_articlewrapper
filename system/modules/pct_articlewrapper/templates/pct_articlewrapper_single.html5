@@ -1,0 +1,10 @@
+<?php
+/**
+ * ArticleWrapper Single template 
+ */
+?>
+<div <?php echo $this->cssID; ?> class="<?php echo $this->class; ?> block" <?php if($this->styles): ?>style="<?php echo $this->styles; ?>"<?php endif;?>>
+	<div class="inside">
+	<?php echo $this->content; ?>
+	</div>
+</div>

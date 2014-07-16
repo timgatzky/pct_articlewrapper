@@ -25,6 +25,7 @@ $GLOBALS['TL_LANG']['tl_article']['articlewrapper'][0]				= 'Artikelwrapper akti
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper'][1]				= 'Wählen Sie hier um den Artikel als Arikelumschlag zu verwenden.';
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper']['articlewrapper_start']	= 'Umschlaganfang';
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper']['articlewrapper_stop']	= 'Umschlagende';
+$GLOBALS['TL_LANG']['tl_article']['articlewrapper']['articlewrapper_single']= 'Einzelelement';
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper_style'][0]		= 'Darstellungsart';
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper_style'][1]		= 'Wählen Sie die Darstellungsart.';
 $GLOBALS['TL_LANG']['tl_article']['articlewrapper_style']['fullwidth_contentboxed']		= 'fullwidth [content boxed]';

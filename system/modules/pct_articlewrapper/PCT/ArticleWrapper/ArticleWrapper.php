@@ -54,6 +54,11 @@ class ArticleWrapper
 			return $objArticle;
 		}
 		
+		if(in_array($objArticle->articlewrapper,array('articlewrapper_stop','articlewrapper_single')))
+		{
+			$GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn] = array();
+		}
+		
 		// include css if there is at least one article that is a wrapper
 		$GLOBALS['TL_CSS'][] = $GLOBALS['PCT_ARTICLEWRAPPER']['css'];
 		
@@ -100,6 +105,9 @@ class ArticleWrapper
 		{
 			return $strBuffer;
 		}
+		
+		// keep the orginal output
+		$strBufferOriginal = $strBuffer;
 		
 		$preg = preg_match('/class="(.*?)\"/', $strBuffer,$result);
 		if(!$preg)
@@ -169,13 +177,14 @@ class ArticleWrapper
 			$styles[] = 'padding-bottom:'.$padding[1].'px;';
 		}
 		
-		
-		$isStart = true;
 		$strTemplate = 'pct_articlewrapper_start';
 		if($objArticle->articlewrapper == 'articlewrapper_stop')
 		{
-			$isStart = false;
 			$strTemplate = 'pct_articlewrapper_stop';
+		}
+		else if($objArticle->articlewrapper == 'articlewrapper_single')
+		{
+			$strTemplate = 'pct_articlewrapper_single';
 		}
 		
 		$objTemplate = new \FrontendTemplate($strTemplate);
@@ -183,6 +192,7 @@ class ArticleWrapper
 		$objTemplate->cssID = $cssID;
 		$objTemplate->class = trim(implode(' ', $classes));
 		$objTemplate->styles = trim(implode(' ', $styles));
+		$objTemplate->content = $strBufferOriginal;
 		
 		$strBuffer = $objTemplate->parse();
 		

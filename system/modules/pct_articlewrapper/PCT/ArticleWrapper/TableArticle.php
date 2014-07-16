@@ -95,6 +95,11 @@ class TableArticle extends \Backend
 			$GLOBALS['PCT_ARTICLEWRAPPER']['wrapperOpen'] = false;
 		}
 		
+		else if($row['articlewrapper'] == 'articlewrapper_single')
+		{
+			$strBuffer = '<div class="'.$row['articlewrapper'].' '.$row['inColumn'].'">'.$strBuffer.'</div>';
+		}
+		
 		else if($GLOBALS['PCT_ARTICLEWRAPPER']['wrapperOpen'])
 		{
 			$strBuffer = '<div class="articlewrapper_indent between '.$row['inColumn'].'">'.$strBuffer.'</div>';
@@ -118,7 +123,7 @@ class TableArticle extends \Backend
 	{
 		$this->loadDataContainer('tl_article');
 		$helper = new \tl_article();
-		if(strlen($row['articlewrapper']) < 1)
+		if(strlen($row['articlewrapper']) < 1 || $row['articlewrapper'] == 'articlewrapper_single')
 		{
 			return $helper->editArticle($row, $href, $label, $title, $icon, $attributes);
 		}
