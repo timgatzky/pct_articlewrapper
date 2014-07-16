@@ -67,6 +67,14 @@ class TableArticle extends \Backend
 		{
 			$GLOBALS['TL_DCA']['tl_article']['list']['operations']['autogrid']['button_callback'] = array('PCT\ArticleWrapper\TableArticle','autogridButton');
 		}
+		
+		// contao bug: default values will be ignored in onload callback
+		if(\Input::get('type') == 'articlewrapper')
+		{
+			$arrSet = array('articlewrapper'=>$GLOBALS['TL_DCA']['tl_article']['fields']['articlewrapper']['default']);
+			\Database::getInstance()->prepare("UPDATE ".$objDC->table." %s WHERE id=?")->set($arrSet)->execute($objDC->id);
+		}
+		
 	}
 	
 	
