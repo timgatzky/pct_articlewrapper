@@ -11,8 +11,13 @@
  * @link		http://contao.org
  */
 
+$GLOBALS['TL_DCA']['tl_article']['config']['onload_callback'][] = array('PCT\ArticleWrapper\TableArticle', 'loadAssets');
 $GLOBALS['TL_DCA']['tl_article']['config']['onload_callback'][] = array('PCT\ArticleWrapper\TableArticle', 'modifyDca');
 
+/**
+ * List
+ */
+$GLOBALS['TL_DCA']['tl_article']['list']['label']['label_callback'] = array('PCT\ArticleWrapper\TableArticle','listView');
 
 /**
  * Selector

@@ -23,6 +23,15 @@ namespace PCT\ArticleWrapper;
 class TableArticle extends \Backend
 {
 	/**
+	 * Load backend styles
+	 * @param object
+	 */
+	public function loadAssets(\DataContainer $objDC)
+	{
+		$GLOBALS['TL_CSS'][] = 'system/modules/pct_articlewrapper/assets/css/be_styles.css';
+	}
+	
+	/**
 	 * Modify the DCA on load
 	 * @param object
 	 */
@@ -53,5 +62,39 @@ class TableArticle extends \Backend
 		{
 			unset($GLOBALS['TL_DCA']['tl_article']['fields']['autogrid']);
 		}
+	}
+	
+	
+	/**
+	 * Modify the list view
+	 * @param array
+	 * @param string
+	 * @return string
+	 */
+	public function listView($row, $label)
+	{
+		$this->loadDataContainer('tl_article');
+		$helper = new \tl_article();
+		
+		$strBuffer = $helper->addIcon($row, $label);
+		
+		if($row['articlewrapper'] == 'articlewrapper_start')
+		{
+			$strBuffer = '<div class="'.$row['articlewrapper'].' '.$row['inColumn'].'">'.$strBuffer.'</div>';
+			$GLOBALS['PCT_ARTICLEWRAPPER']['wrapperOpen'] = true;
+		}
+	
+		else if($row['articlewrapper'] == 'articlewrapper_stop')
+		{
+			$strBuffer = '<div class="'.$row['articlewrapper'].' '.$row['inColumn'].'">'.$strBuffer.'</div>';
+			$GLOBALS['PCT_ARTICLEWRAPPER']['wrapperOpen'] = false;
+		}
+		
+		else if($GLOBALS['PCT_ARTICLEWRAPPER']['wrapperOpen'])
+		{
+			$strBuffer = '<div class="articlewrapper_indent between '.$row['inColumn'].'">'.$strBuffer.'</div>';
+		}
+		
+		return $strBuffer;
 	}
 }
