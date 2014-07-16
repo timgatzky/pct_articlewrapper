@@ -68,8 +68,10 @@ array_insert($GLOBALS['TL_DCA']['tl_article']['fields'],0,array
 	),
 ));
 
-$GLOBALS['TL_DCA']['tl_article']['fields']['inColumn']['eval']['submitOnChange'] = true;
-
+if(count($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) > 0)
+{
+	$GLOBALS['TL_DCA']['tl_article']['fields']['inColumn']['eval']['submitOnChange'] = true;
+}
 
 /**
  * Insert articlewrapper button in global operation
