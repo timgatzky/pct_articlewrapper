@@ -41,5 +41,10 @@ class TableArticle extends \Backend
 			}
 		}
 		
+		// remove autogrid stuff
+		if(strlen($objActiveRecord->articlewrapper) > 0 && in_array('pct_autogrid', \Config::getInstance()->getActiveModules()))
+		{
+			unset($GLOBALS['TL_DCA']['tl_article']['fields']['autogrid']);
+		}
 	}
 }
