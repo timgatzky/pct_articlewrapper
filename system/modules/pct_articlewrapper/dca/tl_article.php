@@ -53,10 +53,10 @@ array_insert($GLOBALS['TL_DCA']['tl_article']['fields'],0,array
 		'label'					=> &$GLOBALS['TL_LANG']['tl_article']['articlewrapper_style'],
 		'exclude'				=> true,
 		'inputType'				=> 'select',
-		'options'				=> array('fullwidth','boxed'),
-		'reference'				=> $GLOBALS['TL_LANG']['tl_article']['articlewrapper_layout'],
+		'options'				=> array('fullwidth','fullwidth_contentboxed','boxed'),
+		'reference'				=> $GLOBALS['TL_LANG']['tl_article']['articlewrapper_style'],
 		'eval'					=> array('tl_class'=>'w50','chosen'=>true),
-		'sql'					=> "varchar(16) NOT NULL default ''",
+		'sql'					=> "varchar(32) NOT NULL default ''",
 	),
 	'articlewrapper_padding'	=> array
 	(
