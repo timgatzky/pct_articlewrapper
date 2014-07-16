@@ -11,6 +11,9 @@
  * @link		http://contao.org
  */
 
+$GLOBALS['TL_DCA']['tl_article']['config']['onload_callback'][] = array('PCT\ArticleWrapper\TableArticle', 'modifyDca');
+
+
 /**
  * Selector
  */
@@ -64,6 +67,8 @@ array_insert($GLOBALS['TL_DCA']['tl_article']['fields'],0,array
 		'sql'					=> "varchar(64) NOT NULL default ''"
 	),
 ));
+
+$GLOBALS['TL_DCA']['tl_article']['fields']['inColumn']['eval']['submitOnChange'] = true;
 
 
 /**

@@ -23,12 +23,23 @@ namespace PCT\ArticleWrapper;
 class TableArticle extends \Backend
 {
 	/**
-	 * Return all article types as array
+	 * Modify the DCA on load
 	 * @param object
-	 * @return array
 	 */
-	public function getArticleTypes(\DataContainer $objDC)
+	public function modifyDca(\DataContainer $objDC)
 	{
-		return array('articlewrapper');
+		$objActiveRecord = \Database::getInstance()->prepare("SELECT * FROM ".$objDC->table." WHERE id=?")->limit(1)->execute($objDC->id);
+		
+		if(is_array($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) && count($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) > 0)
+		{
+			// filter by section
+			if(!in_array($objActiveRecord->inColumn, $GLOBALS['PCT_ARTICLEWRAPPER']['sections']))
+			{
+				unset($GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_start']);
+				unset($GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_stop']);
+				unset($GLOBALS['TL_DCA']['tl_article']['fields']['articlewrapper']);
+			}
+		}
+		
 	}
 }

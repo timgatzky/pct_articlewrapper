@@ -23,6 +23,7 @@ $GLOBALS['PCT_ARTICLEWRAPPER']						= array();
 $GLOBALS['PCT_ARTICLEWRAPPER']['css']				= 'system/modules/pct_articlewrapper/assets/css/styles.css';
 $GLOBALS['PCT_ARTICLEWRAPPER']['wrapperOpen']		= false;	
 $GLOBALS['PCT_ARTICLEWRAPPER']['siblings']			= array();
+$GLOBALS['PCT_ARTICLEWRAPPER']['sections']			= array('main');
 
 /**
  * Hooks
