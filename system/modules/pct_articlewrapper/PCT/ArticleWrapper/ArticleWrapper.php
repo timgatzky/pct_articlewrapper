@@ -166,7 +166,7 @@ class ArticleWrapper
 		}
 		
 		// padding
-		$padding = deserialize($objArticle->articlewrapper_space);
+		$padding = deserialize($objArticle->articlewrapper_padding);
 		if(isset($padding[0]))
 		{
 			$styles[] = 'padding-top:'.$padding[0].'px;';
