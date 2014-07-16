@@ -30,14 +30,21 @@ class TableArticle extends \Backend
 	{
 		$objActiveRecord = \Database::getInstance()->prepare("SELECT * FROM ".$objDC->table." WHERE id=?")->limit(1)->execute($objDC->id);
 		
+		// restrict layout sections
 		if(is_array($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) && count($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) > 0)
 		{
-			// filter by section
 			if(!in_array($objActiveRecord->inColumn, $GLOBALS['PCT_ARTICLEWRAPPER']['sections']))
 			{
 				unset($GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_start']);
 				unset($GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_stop']);
 				unset($GLOBALS['TL_DCA']['tl_article']['fields']['articlewrapper']);
+			}
+			
+			// remove the layout section select
+			if(strlen($objActiveRecord->articlewrapper) > 0)
+			{
+				$GLOBALS['TL_DCA']['tl_article']['fields']['inColumn']['eval']['readonly'] = 1;
+				unset($GLOBALS['TL_DCA']['tl_article']['fields']['inColumn']);
 			}
 		}
 		
