@@ -20,6 +20,11 @@ $GLOBALS['TL_DCA']['tl_article']['config']['onload_callback'][] = array('PCT\Art
 $GLOBALS['TL_DCA']['tl_article']['list']['label']['label_callback'] = array('PCT\ArticleWrapper\TableArticle','listView');
 
 /**
+ * Buttons
+ */
+$GLOBALS['TL_DCA']['tl_article']['list']['operations']['edit']['button_callback'] = array('PCT\ArticleWrapper\TableArticle','editButton');
+		
+/**
  * Selector
  */
 $GLOBALS['TL_DCA']['tl_article']['palettes']['__selector__'][] = 'articlewrapper';

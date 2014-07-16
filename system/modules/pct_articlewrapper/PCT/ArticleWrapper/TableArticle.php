@@ -62,6 +62,11 @@ class TableArticle extends \Backend
 		{
 			unset($GLOBALS['TL_DCA']['tl_article']['fields']['autogrid']);
 		}
+		
+		if(in_array('pct_autogrid', \Config::getInstance()->getActiveModules()))
+		{
+			$GLOBALS['TL_DCA']['tl_article']['list']['operations']['autogrid']['button_callback'] = array('PCT\ArticleWrapper\TableArticle','autogridButton');
+		}
 	}
 	
 	
@@ -96,5 +101,48 @@ class TableArticle extends \Backend
 		}
 		
 		return $strBuffer;
+	}
+	
+	
+	/**
+	 * Remove the edit button for article wrappers
+	 * @param array
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @return string
+	 */
+	public function editButton($row, $href, $label, $title, $icon, $attributes)
+	{
+		$this->loadDataContainer('tl_article');
+		$helper = new \tl_article();
+		if(strlen($row['articlewrapper']) < 1)
+		{
+			return $helper->editArticle($row, $href, $label, $title, $icon, $attributes);
+		}
+		return '';
+	}
+	
+	
+	/**
+	 * Remove the autogrid button for article wrappers
+	 * @param array
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @param string
+	 * @return string
+	 */
+	public function autogridButton($row, $href, $label, $title, $icon, $attributes)
+	{
+		$helper = new \PCT\AutoGrid\TableArticle();
+		if(strlen($row['articlewrapper']) < 1)
+		{
+			return $helper->toggleAutoGridIcon($row, $href, $label, $title, $icon, $attributes);
+		}
+		return '';
 	}
 }
