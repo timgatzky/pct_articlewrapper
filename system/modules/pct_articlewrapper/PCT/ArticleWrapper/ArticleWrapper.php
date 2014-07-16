@@ -23,24 +23,13 @@ namespace PCT\ArticleWrapper;
 class ArticleWrapper
 {
 	/**
-	 * Include css on init
-	 */
-	public function __construct()
-	{
-		if(TL_MODE == 'FE')
-		{
-			$GLOBALS['TL_CSS'][] = $GLOBALS['PCT_ARTICLEWRAPPER']['css'];
-		}
-	}
-	
-	/**
 	 * Inject autowrapper classes in articles
 	 * @param object
 	 * @reuturn object
 	 */
 	public function getArticlesCallback($objArticle)
 	{
-		if(TL_MODE != 'FE' )
+		if(TL_MODE != 'FE')
 		{
 			return $objArticle;
 		}
@@ -64,6 +53,9 @@ class ArticleWrapper
 			$objArticle->classes = array_unique($classes);
 			return $objArticle;
 		}
+		
+		// include css if there is at least one article that is a wrapper
+		$GLOBALS['TL_CSS'][] = $GLOBALS['PCT_ARTICLEWRAPPER']['css'];
 		
 		$collection = is_array($GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn]) ? $GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn] : array();
 		$collection[] = $objArticle->id;
