@@ -156,22 +156,22 @@ class ArticleWrapper
 		// margin
 		$margin = deserialize($objArticle->space);
 		$styles = array();
-		if(isset($margin[0]))
+		if(strlen($margin[0]) > 0)
 		{
 			$styles[] = 'margin-top:'.$margin[0].'px;';
 		}
-		if(isset($margin[1]))
+		if(strlen($margin[1]) > 0)
 		{
 			$styles[] = 'margin-bottom:'.$margin[1].'px;';
 		}
 		
 		// padding
 		$padding = deserialize($objArticle->articlewrapper_padding);
-		if(isset($padding[0]))
+		if(strlen($padding[0]) > 0)
 		{
 			$styles[] = 'padding-top:'.$padding[0].'px;';
 		}
-		if(isset($padding[1]))
+		if(strlen($padding[1]) > 0)
 		{
 			$styles[] = 'padding-bottom:'.$padding[1].'px;';
 		}
