@@ -1,2 +1,4 @@
 
 ### 1.0.0
+Update: Restrict to layout section main only by default. Defined by $GLOBALS['PCT_ARTICLEWRAPPER']['sections']
+Added: fullwidth_contentboxed style option
