@@ -54,6 +54,7 @@ class ArticleWrapper
 			return $objArticle;
 		}
 		
+		
 		if(in_array($objArticle->articlewrapper,array('articlewrapper_stop','articlewrapper_single')))
 		{
 			$GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn] = array();
@@ -61,6 +62,15 @@ class ArticleWrapper
 		
 		// include css if there is at least one article that is a wrapper
 		$GLOBALS['TL_CSS'][] = $GLOBALS['PCT_ARTICLEWRAPPER']['css'];
+		
+		// include a body class
+		global $objPage;
+		$bodyClasses = explode(' ', $bodyClasses);
+		if(!in_array('aw_active', $bodyClasses))
+		{
+			$bodyClasses[] = 'aw_active';
+		}
+		$objPage->cssClass = implode(' ', $bodyClasses);
 		
 		$collection = is_array($GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn]) ? $GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn] : array();
 		$collection[] = $objArticle->id;
