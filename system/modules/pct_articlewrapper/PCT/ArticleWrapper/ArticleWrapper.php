@@ -65,7 +65,7 @@ class ArticleWrapper
 		
 		// include a body class
 		global $objPage;
-		$bodyClasses = explode(' ', $bodyClasses);
+		$bodyClasses = explode(' ', $objPage->cssClass);
 		if(!in_array('aw_active', $bodyClasses))
 		{
 			$bodyClasses[] = 'aw_active';
