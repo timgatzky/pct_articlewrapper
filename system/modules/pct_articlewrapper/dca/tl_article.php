@@ -34,8 +34,8 @@ $GLOBALS['TL_DCA']['tl_article']['palettes']['__selector__'][] = 'articlewrapper
  */
 $GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_start'] = '{articlewrapper_legend},articlewrapper,articlewrapper_style,articlewrapper_padding,articlewrapper_layout;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},cssID,space;{publish_legend},published';
 $GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_stop'] = '{articlewrapper_legend},articlewrapper;{title_legend},title,alias;{layout_legend},inColumn;{expert_legend:hide},space;{publish_legend},published';
-
-$GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = '{articlewrapper_legend},articlewrapper,articlewrapper_style,articlewrapper_padding,articlewrapper_layout;'.$GLOBALS['TL_DCA']['tl_article']['palettes']['default'];
+$GLOBALS['TL_DCA']['tl_article']['palettes']['articlewrapper_single'] = '{articlewrapper_legend},articlewrapper,articlewrapper_style,articlewrapper_padding,articlewrapper_layout;'.$GLOBALS['TL_DCA']['tl_article']['palettes']['default'];
+$GLOBALS['TL_DCA']['tl_article']['palettes']['default'] = '{articlewrapper_legend},articlewrapper;'.$GLOBALS['TL_DCA']['tl_article']['palettes']['default'];
 
 /**
  * Fields
