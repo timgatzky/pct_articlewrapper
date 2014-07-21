@@ -1,3 +1,6 @@
+### 1.2.1
+Fixed: Duplicate CSS Id (#2)
+
 ### 1.2.0
 Fixed: Render optional fields only when article is in wrapper mode (#1)
 
