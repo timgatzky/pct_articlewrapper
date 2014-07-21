@@ -145,11 +145,11 @@ class ArticleWrapper
 		// fetch the article
 		$objArticle = $GLOBALS['PCT_ARTICLEWRAPPER']['ident'][$article];
 		
-		$cssID = 'id="'.($objArticle->alias ? $objArticle->alias : 'article-'.$objArticle->id).'"';
+		$cssID = 'id="'.($objArticle->alias ? 'wrap_'.$objArticle->alias : 'wrap_article-'.$objArticle->id).'"';
 		$arrCssID = deserialize($objArticle->cssID);
 		if($arrCssID[0])
 		{
-			$cssID = 'id="'.$arrCssID[0].'"';
+			$cssID = 'id="'.'wrap_'.$arrCssID[0].'"';
 		}
 		
 		$classes = explode(' ', $arrCssID[1]);
