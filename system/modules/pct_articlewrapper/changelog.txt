@@ -1,3 +1,6 @@
+### 1.2.2
+Fixed: Wrong class names in wrappers (#3)
+
 ### 1.2.1
 Fixed: Duplicate CSS Id (#2)
 

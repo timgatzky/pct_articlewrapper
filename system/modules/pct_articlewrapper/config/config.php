@@ -14,7 +14,7 @@
 /**
  * Constants
  */
-define(PCT_ARTICLEWRAPPER_VERSION, '1.2.1');
+define(PCT_ARTICLEWRAPPER_VERSION, '1.2.2');
 
 /**
  * Globals
@@ -29,6 +29,5 @@ $GLOBALS['PCT_ARTICLEWRAPPER']['layout_options']	= array('typ1','typ2','typ3','t
 /**
  * Hooks
  */
-#$GLOBALS['TL_HOOKS']['loadDataContainer'][] 	= array('PCT\AutoGrid\DcaHelper','onLoadDataContainer');
 $GLOBALS['TL_HOOKS']['getArticle'][] 			= array('PCT\ArticleWrapper\ArticleWrapper','getArticlesCallback');
 $GLOBALS['TL_HOOKS']['parseFrontendTemplate'][] = array('PCT\ArticleWrapper\ArticleWrapper','wrapArticles');
