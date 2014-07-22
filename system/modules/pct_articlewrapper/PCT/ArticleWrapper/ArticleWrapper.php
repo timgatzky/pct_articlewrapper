@@ -85,7 +85,7 @@ class ArticleWrapper
 			{
 				$classes[] = 'first';
 			}
-			else if($i >= count($siblings) - 1)
+			if($i >= count($siblings) - 1)
 			{
 				$classes[] = 'last';
 			}
