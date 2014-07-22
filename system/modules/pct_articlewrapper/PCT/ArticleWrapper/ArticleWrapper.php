@@ -72,21 +72,20 @@ class ArticleWrapper
 		}
 		$objPage->cssClass = implode(' ', $bodyClasses);
 		
-		$collection = is_array($GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn]) ? $GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn] : array();
-		$collection[] = $objArticle->id;
-		
-		$classes = (is_array($objArticle->classes) ? $objArticle->classes : array());
+		#$classes = (is_array($objArticle->classes) ? $objArticle->classes : array());
 		$classes[] = 'articlewrapper-id_'.$objArticle->id;
 		
+		$siblings = $this->fetchSiblingArticleWrappers($objArticle->id);
+		
 		// add classes to wrapper article
-		foreach($collection as $i => $id)
+		foreach($siblings as $i => $id)
 		{
 			if($objArticle->id != $id) {continue;}
 			if($i == 0)
 			{
 				$classes[] = 'first';
 			}
-			if($i >= count($arrCollection) - 1)
+			else if($i >= count($siblings) - 1)
 			{
 				$classes[] = 'last';
 			}
@@ -97,7 +96,6 @@ class ArticleWrapper
 		
 		// store couple data for further use
 		$GLOBALS['PCT_ARTICLEWRAPPER']['ident'][$objArticle->id] = $objArticle;
-		$GLOBALS['PCT_ARTICLEWRAPPER']['collection'][$objArticle->pid][$objArticle->inColumn] = $collection;
 		
 		return $objArticle;
 	}
@@ -251,4 +249,30 @@ class ArticleWrapper
 		return \Database::getInstance()->prepare("SELECT * FROM tl_article ".$strWhere." ORDER BY sorting")->limit(1)->execute();
 	}
 
+
+	/**
+	 * Fetch consecutiv sibling articles
+	 * @param integer
+	 * @param array
+	 * @return array, recursive
+	 */
+	protected function fetchSiblingArticleWrappers($intId)
+	{
+		$strWhere = "WHERE pid=(SELECT pid FROM tl_article WHERE id=".$intId.")
+			AND inColumn=(SELECT inColumn FROM tl_article WHERE id=".$intId.") 
+			AND published=1
+			AND (articlewrapper != '') AND articlewrapper != 'articlewrapper_stop'
+			AND (start = '' OR start < UNIX_TIMESTAMP()) AND (stop = '' OR stop > UNIX_TIMESTAMP() )
+		";
+		
+		// fetch sibling articles
+		$objSiblings = \Database::getInstance()->prepare("SELECT * FROM tl_article ".$strWhere." ORDER BY sorting")->execute();
+		if($objSiblings->numRows < 1)
+		{
+			return array();
+		}
+			
+		return $objSiblings->fetchEach('id');
+
+	}
 }
