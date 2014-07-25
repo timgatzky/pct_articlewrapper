@@ -1,3 +1,6 @@
+### 1.2.3
+Update: Do not restrict layout sections
+
 ### 1.2.2
 Fixed: Wrong class names in wrappers (#3)
 

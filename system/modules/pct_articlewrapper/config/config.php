@@ -23,7 +23,7 @@ $GLOBALS['PCT_ARTICLEWRAPPER']						= array();
 $GLOBALS['PCT_ARTICLEWRAPPER']['css']				= 'system/modules/pct_articlewrapper/assets/css/styles.css';
 $GLOBALS['PCT_ARTICLEWRAPPER']['wrapperOpen']		= false;	
 $GLOBALS['PCT_ARTICLEWRAPPER']['siblings']			= array();
-$GLOBALS['PCT_ARTICLEWRAPPER']['sections']			= array('main');
+$GLOBALS['PCT_ARTICLEWRAPPER']['sections']			= array();
 $GLOBALS['PCT_ARTICLEWRAPPER']['layout_options']	= array('typ1','typ2','typ3','typ4','typ5');
 
 /**
