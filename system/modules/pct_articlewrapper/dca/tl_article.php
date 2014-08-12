@@ -91,13 +91,13 @@ if(count($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) > 0)
 /**
  * Insert articlewrapper button in global operation
  */
-array_insert($GLOBALS['TL_DCA']['tl_article']['list']['global_operations'],0,array
-(
-	'articlewrapper'=> array
-	(
-		'label'			=> &$GLOBALS['TL_LANG']['tl_article']['header_articlewrapper'],
-		'href'			=> '&amp;act=paste&amp;mode=create&amp;type=articlewrapper',
-		'icon'			=> 'new.gif',
-		'class'			=> 'header_articlewrapper'
-	)
-));
+#array_insert($GLOBALS['TL_DCA']['tl_article']['list']['global_operations'],0,array
+#(
+#	'articlewrapper'=> array
+#	(
+#		'label'			=> &$GLOBALS['TL_LANG']['tl_article']['header_articlewrapper'],
+#		'href'			=> '&amp;act=paste&amp;mode=create&amp;type=articlewrapper',
+#		'icon'			=> 'new.gif',
+#		'class'			=> 'header_articlewrapper'
+#	)
+#));
