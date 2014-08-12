@@ -24,7 +24,7 @@ $GLOBALS['PCT_ARTICLEWRAPPER']['css']				= 'system/modules/pct_articlewrapper/as
 $GLOBALS['PCT_ARTICLEWRAPPER']['wrapperOpen']		= false;	
 $GLOBALS['PCT_ARTICLEWRAPPER']['siblings']			= array();
 $GLOBALS['PCT_ARTICLEWRAPPER']['sections']			= array();
-$GLOBALS['PCT_ARTICLEWRAPPER']['layout_options']	= array('typ1','typ2','typ3','typ4','typ5');
+$GLOBALS['PCT_ARTICLEWRAPPER']['layout_options']	= array('typ1','typ2','typ3','typ4','typ5','typ6');
 
 /**
  * Hooks
