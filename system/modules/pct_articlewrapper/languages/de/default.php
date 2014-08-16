@@ -21,3 +21,4 @@ $GLOBALS['TL_LANG']['pct_articlewrapper']['layout_options']['typ2']		= 'Typ 2';
 $GLOBALS['TL_LANG']['pct_articlewrapper']['layout_options']['typ3']		= 'Typ 3';
 $GLOBALS['TL_LANG']['pct_articlewrapper']['layout_options']['typ4']		= 'Typ 4';
 $GLOBALS['TL_LANG']['pct_articlewrapper']['layout_options']['typ5']		= 'Typ 5';
+$GLOBALS['TL_LANG']['pct_articlewrapper']['layout_options']['typ5']		= 'Typ 6';
