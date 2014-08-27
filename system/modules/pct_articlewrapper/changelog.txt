@@ -1,3 +1,6 @@
+### 1.3
+Added: English language files (#6)
+
 ### 1.2.3
 Update: Do not restrict layout sections
 
