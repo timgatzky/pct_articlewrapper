@@ -40,7 +40,7 @@ class TableArticle extends \Backend
 		$objActiveRecord = \Database::getInstance()->prepare("SELECT * FROM ".$objDC->table." WHERE id=?")->limit(1)->execute($objDC->id);
 		
 		// restrict layout sections
-		if(!\Input::get('mode') && is_array($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) && count($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) > 0)
+		if(is_array($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) && count($GLOBALS['PCT_ARTICLEWRAPPER']['sections']) > 0)
 		{
 			if(!in_array($objActiveRecord->inColumn, $GLOBALS['PCT_ARTICLEWRAPPER']['sections']))
 			{
@@ -50,7 +50,7 @@ class TableArticle extends \Backend
 			}
 			
 			// remove the layout section select
-			if(strlen($objActiveRecord->articlewrapper) > 0)
+			if(\Input::get('act') == 'edit' && strlen($objActiveRecord->articlewrapper) > 0)
 			{
 				$GLOBALS['TL_DCA']['tl_article']['fields']['inColumn']['eval']['readonly'] = 1;
 				unset($GLOBALS['TL_DCA']['tl_article']['fields']['inColumn']);
