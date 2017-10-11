@@ -14,7 +14,7 @@
 /**
  * Constants
  */
-define(PCT_ARTICLEWRAPPER_VERSION, '1.4.1');
+define(PCT_ARTICLEWRAPPER_VERSION, '1.5.0');
 
 /**
  * Globals
